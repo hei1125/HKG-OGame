@@ -1228,7 +1228,7 @@ INSERT INTO `%PREFIX%vars_rapidfire` (`elementID`, `rapidfireID`, `shoots`) VALU
 (215, 203, 3),
 (215, 205, 4),
 (215, 206, 4),
-(215, 207, 10),
+(215, 207, 7),
 (215, 210, 5),
 (215, 212, 5),
 (216, 210, 1250),
