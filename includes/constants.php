@@ -50,7 +50,7 @@ if(!defined('CACHE_PATH')) {
 }
 
 // For Fatal Errors!
-define('DEFAULT_LANG'				, 'de');
+define('DEFAULT_LANG'				, 'zh');
 
 // SUPPORT WILDCAST DOMAINS
 define('UNIS_WILDCAST'				, false);
@@ -132,8 +132,8 @@ define('SPY_DIFFENCE_FACTOR'		, 1);
 define('SPY_VIEW_FACTOR'			, 1);
 
 // Bash Settings
-define('BASH_ON'					, false);	
-define('BASH_COUNT'					, 6);	
+define('BASH_ON'					, true);	
+define('BASH_COUNT'					, 3);	
 define('BASH_TIME'					, 86400);	
 
 // Bash rule on wars:
