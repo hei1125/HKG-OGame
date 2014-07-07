@@ -74,7 +74,7 @@ class PlayerUtil {
 		}
 	}
 	
-	static function createPlayer($Universe, $UserName, $UserPass, $UserMail, $UserLang = NULL, $Galaxy = NULL, $System = NULL, $Position = NULL, $planetname = NULL, $authlevel = 0, $UserIP = NULL)
+	static function createPlayer($Universe, $UserName, $UserPass, $UserMail, $UserRace, $UserLang = NULL, $Galaxy = NULL, $System = NULL, $Position = NULL, $planetname = NULL, $authlevel = 0, $UserIP = NULL)
 	{
 		$CONF	= Config::getAll(NULL, $Universe);
 		
@@ -138,6 +138,7 @@ class PlayerUtil {
 		password		= '".$UserPass."',
 		dpath			= '".DEFAULT_THEME."',
 		timezone		= '".$CONF['timezone']."',
+		race            = '".$UserRace."',
 		uctime			= 0";
 		
 		foreach($GLOBALS['reslist']['resstype'][3] as $elementID) {

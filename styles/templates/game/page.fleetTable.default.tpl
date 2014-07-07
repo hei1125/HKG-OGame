@@ -124,6 +124,8 @@
 	<tr><td>+{$bonusAttack} %</td><td>+{$bonusDefensive} %</td><td>+{$bonusShield} %</td></tr>
 	<tr><th style="width:33%">{$LNG.tech.115}</th><th style="width:33%">{$LNG.tech.117}</th><th style="width:33%">{$LNG.tech.118}</th></tr>
 	<tr><td>+{$bonusCombustion} %</td><td>+{$bonusImpulse} %</td><td>+{$bonusHyperspace} %</td></tr>
+	<tr><th colspan="3">{$LNG.st_race}</th></tr>
+	<tr><td colspan="3">+{$bonusRace} %</td></tr>
 </table>
 {/block}
 {block name="script" append}<script src="scripts/game/fleetTable.js"></script>{/block}

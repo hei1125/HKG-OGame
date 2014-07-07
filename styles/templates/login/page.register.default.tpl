@@ -56,6 +56,14 @@
 		{if !empty($error.emailReplay)}<span class="error errorEmailReplay"></span>{/if}
 		<span class="inputDesc">{$LNG.registerEmailReplayDesc}</span>
 	</div>
+	{if count($raceSelect) > 1}        
+	<div class="rowForm">		
+		<label for="race">{$LNG.registerRace}</label>		
+		<select name="race" id="race">{html_options options=$raceSelect}</select>		
+		{if !empty($error.race)}<span class="error errorRace"></span>{/if}		
+		<div class="clear"></div>	
+	</div>        
+	{/if}
 	{if count($languages) > 1}
 	<div class="rowForm">
 		<label for="language">{$LNG.registerLanguage}</label>

@@ -52,6 +52,7 @@ $LNG['loginWelcome']				= '歡迎來到 %s';
 $LNG['loginServerDesc']				= '%s 是一個戰略性宇宙空間模擬遊戲，成千上萬的玩家同時在線一起進行戰爭。您只需要一個網頁瀏覽器就可以進行遊戲。(推薦使用FireFox/Chrome進行遊戲).';
 
 // Register
+$LNG['registerRace'] 				= '選擇你的種族:';
 $LNG['registerFacebookAccount']		= 'Facebook Account';
 $LNG['registerUsername']			= '用戶名稱';
 $LNG['registerUsernameDesc']		= '帳號必須在至少3個字元，最多25個字元，只能由數字，字母，句點，連字號，下劃線和空格。';

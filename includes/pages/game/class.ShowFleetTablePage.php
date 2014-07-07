@@ -262,7 +262,7 @@ class ShowFleetTablePage extends AbstractPage
 				'count'	=> $PLANET[$resource[$FleetID]],
 			);
 		}
-		
+		$racebonus = $GLOBALS['DATABASE']->getFirstRow('SELECT * FROM ' . RACES . ' WHERE race_id = ' . $USER['race']);
 		$this->tplObj->assign_vars(array(
 			'FleetsOnPlanet'		=> $FleetsOnPlanet,
 			'FlyingFleetList'		=> $FlyingFleetList,
@@ -283,6 +283,7 @@ class ShowFleetTablePage extends AbstractPage
 			'bonusCombustion'		=> $USER[$resource[115]] * 10,
 			'bonusImpulse'			=> $USER[$resource[117]] * 20,
 			'bonusHyperspace'		=> $USER[$resource[118]] * 30,
+			'bonusRace'				=> $racebonus['race_fleet_time'] * 100,
 		));
 		
 		$this->display('page.fleetTable.default.tpl');

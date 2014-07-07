@@ -127,16 +127,19 @@ if (MODE === 'INGAME' || MODE === 'ADMIN' || MODE === 'CHAT')
 		require('includes/FleetHandler.php');
 	}
 		
-	$USER	= $GLOBALS['DATABASE']->getFirstRow("SELECT 
-	user.*, 
-	stat.total_points, 
-	stat.total_rank,
-	COUNT(message.message_id) as messages
-	FROM ".USERS." as user 
-	LEFT JOIN ".STATPOINTS." as stat ON stat.id_owner = user.id AND stat.stat_type = '1' 
-	LEFT JOIN ".MESSAGES." as message ON message.message_owner = user.id AND message.message_unread = '1'
-	WHERE user.id = ".$_SESSION['id']."
+	$USER    = $GLOBALS['DATABASE']->getFirstRow("SELECT     
+	user.*,     
+	stat.total_points,     
+	stat.total_rank,    
+	COUNT(message.message_id) as messages,        
+	races.race_name,        
+	races.race_id    
+	FROM ".USERS." as user     
+	LEFT JOIN ".STATPOINTS." as stat ON stat.id_owner = user.id AND stat.stat_type = '1'     
+	LEFT JOIN ".MESSAGES." as message ON message.message_owner = user.id AND message.message_unread = '1'        
+	LEFT JOIN ".RACES." as races ON races.race_id = user.race    WHERE user.id = ".$_SESSION['id']."    
 	GROUP BY message.message_owner;");
+
 	
 	if(empty($USER)) {
 		setcookie('remember_pass', false);

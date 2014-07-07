@@ -55,9 +55,6 @@ define('LOG_FLEETS'			, DB_PREFIX.'log_fleets');
 define('LOSTPASSWORD'		, DB_PREFIX.'lostpassword');
 define('NEWS'				, DB_PREFIX.'news');
 define('NOTES'				, DB_PREFIX.'notes');
-//Market Mod
-define('MARKET'			    , DB_PREFIX.'market');
-define('MARKETALLY'			, DB_PREFIX.'marketally');
 define('MESSAGES'			, DB_PREFIX.'messages');
 define('MULTI'				, DB_PREFIX.'multi');
 define('PLANETS'            , DB_PREFIX.'planets');
@@ -80,3 +77,6 @@ define('VARS_RAPIDFIRE'		, DB_PREFIX.'vars_rapidfire');
 define('VARS_REQUIRE'	 	, DB_PREFIX.'vars_requriements');
 
 // MOD-TABLES
+define('MARKET'			    , DB_PREFIX.'market');
+define('MARKETALLY'			, DB_PREFIX.'marketally');
+define('RACES'         		, DB_PREFIX.'races');

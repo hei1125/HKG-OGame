@@ -95,7 +95,8 @@ class BuildFunctions
 			if (!isset($pricelist[$Element]['cost'][$resType])) {
 				continue;
 			}
-			$ressourceAmount	= $pricelist[$Element]['cost'][$resType];
+			$racebonus = $GLOBALS['DATABASE']->getFirstRow('SELECT * FROM ' . RACES . ' WHERE race_id = ' . $USER['race']);
+			$ressourceAmount	= $pricelist[$Element]['cost'][$resType] * (1 - $racebonus['race_fleet_cost']);
 			
 			if ($ressourceAmount == 0) {
 				continue;
@@ -121,11 +122,11 @@ class BuildFunctions
 	
 	public static function isTechnologieAccessible($USER, $PLANET, $Element)
 	{
-		global $requeriments, $resource;
+		global $requeriments, $resource, $pricelist;
 		
 		if(!isset($requeriments[$Element]))
 			return true;		
-
+		
 		foreach($requeriments[$Element] as $ReqElement => $EleLevel)
 		{
 			if (
@@ -160,8 +161,9 @@ class BuildFunctions
 			$elementCost	+= $elementPrice[902];
 		}
 		
+		$raceBonus = $GLOBALS['DATABASE']->getFirstRow('SELECT * FROM ' . RACES . ' WHERE race_id = ' . $USER['race']);
 		if	   (in_array($Element, $reslist['build'])) {
-			$time	= $elementCost / (Config::get('game_speed') * (1 + $PLANET[$resource[14]])) * pow(0.5, $PLANET[$resource[15]]) * (1 + $USER['factor']['BuildTime']);
+			$time	= $elementCost / (Config::get('game_speed') * (1 + $PLANET[$resource[14]])) * pow(0.5, $PLANET[$resource[15]]) * (1 - $raceBonus['race_build_time'] + $USER['factor']['BuildTime']);
 		} elseif (in_array($Element, $reslist['fleet'])) {
 			$time	= $elementCost / (Config::get('game_speed') * (1 + $PLANET[$resource[21]])) * pow(0.5, $PLANET[$resource[15]]) * (1 + $USER['factor']['ShipTime']);	
 		} elseif (in_array($Element, $reslist['defense'])) {
@@ -179,7 +181,7 @@ class BuildFunctions
 				}
 			}
 			
-			$time	= $elementCost / (1000 * (1 + $Level)) / (Config::get('game_speed') / 2500) * pow(1 - Config::get('factor_university') / 100, $PLANET[$resource[6]]) * (1 + $USER['factor']['ResearchTime']);
+			$time	= $elementCost / (1000 * (1 + $Level)) / (Config::get('game_speed') / 2500) * pow(1 - Config::get('factor_university') / 100, $PLANET[$resource[6]]) * (1 - $raceBonus['race_research_time'] + $USER['factor']['ResearchTime']);
 		}
 		
 		if($forDestroy) {

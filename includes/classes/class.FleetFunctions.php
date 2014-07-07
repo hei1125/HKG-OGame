@@ -117,11 +117,13 @@ class FleetFunctions
 		$SpeedFactor	+= 10;
 		$SpeedFactor	/= $GameSpeed;
 		
-		if(isset($USER['factor']['FlyTime']))
-		{
+		$racebonus = $GLOBALS['DATABASE']->getFirstRow('SELECT * FROM ' . RACES . ' WHERE race_id = ' . $USER['race']);
+		if(isset($USER['factor']['FlyTime'])) {
 			$SpeedFactor	*= max(0, 1 + $USER['factor']['FlyTime']);
+		} else {
+			$SpeedFactor	*= max(0, 1);
 		}
-		
+		$SpeedFactor *= (1 - $racebonus['race_fleet_time']);
 		return max($SpeedFactor, MIN_FLEET_TIME);
 	}
  

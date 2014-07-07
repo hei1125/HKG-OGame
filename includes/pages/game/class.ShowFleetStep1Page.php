@@ -65,11 +65,12 @@ class ShowFleetStep1Page extends AbstractPage
 		if (empty($Fleet))
 			FleetFunctions::GotoFleetPage();
 	
+		$racebonus = $GLOBALS['DATABASE']->getFirstRow('SELECT * FROM ' . RACES . ' WHERE race_id = ' . $USER['race']);
 		$FleetData	= array(
 			'fleetroom'			=> floattostring($FleetRoom),
 			'fleetfuel'			=> $FleetFuel,
 			'gamespeed'			=> FleetFunctions::GetGameSpeedFactor(),
-			'fleetspeedfactor'	=> max(0, 1 + $USER['factor']['FlyTime']),
+			'fleetspeedfactor'	=> max(0, 1 - $racebonus['race_fleet_time'] + $USER['factor']['FlyTime']),
 			'planet'			=> array('galaxy' => $PLANET['galaxy'], 'system' => $PLANET['system'], 'planet' => $PLANET['planet'], 'planet_type' => $PLANET['planet_type']),
 			'maxspeed'			=> FleetFunctions::GetFleetMaxSpeed($Fleet, $USER),
 			'ships'				=> FleetFunctions::GetFleetShipInfo($Fleet, $USER),

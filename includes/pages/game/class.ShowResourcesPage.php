@@ -176,11 +176,12 @@ class ShowResourcesPage extends AbstractPage
 			903	=> $PLANET[$resource[903].'_perhour'] + $basicProduction[903],
 			911	=> $PLANET[$resource[911]] + $basicProduction[911] + $PLANET[$resource[911].'_used'],
 		);
-		
-		$bonusProduction	= array(
-			901 => $temp[901]['plus'] * ($USER['factor']['Resource'] + 0.02 * $USER[$resource[131]]),
-			902 => $temp[902]['plus'] * ($USER['factor']['Resource'] + 0.02 * $USER[$resource[132]]),
-			903	=> $temp[903]['plus'] * ($USER['factor']['Resource'] + 0.02 * $USER[$resource[133]]),
+	
+		$racebonus = $GLOBALS['DATABASE']->getFirstRow('SELECT * FROM ' . RACES . ' WHERE race_id = ' . $USER['race']);
+		$bonusProduction    = array(
+            901 => ($temp[901]['plus'] * ($racebonus['race_resource_production'] + $USER['factor']['Resource'] + 0.02 * $USER[$resource[131]])),
+            902 => ($temp[902]['plus'] * ($racebonus['race_resource_production'] + $USER['factor']['Resource'] + 0.02 * $USER[$resource[132]])),
+            903 => ($temp[903]['plus'] * ($racebonus['race_resource_production'] + $USER['factor']['Resource'] + 0.02 * $USER[$resource[133]])),
 			911	=> $temp[911]['plus'] * $USER['factor']['Energy'],
 		);
 		
@@ -210,6 +211,7 @@ class ShowResourcesPage extends AbstractPage
 			'productionList'	=> $productionList,
 			'basicProduction'	=> $basicProduction,
 			'totalProduction'	=> $totalProduction,
+			'bonusProduction'	=> $bonusProduction,
 			'bonusProduction'	=> $bonusProduction,
 			'dailyProduction'	=> $dailyProduction,
 			'weeklyProduction'	=> $weeklyProduction,

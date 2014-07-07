@@ -485,4 +485,12 @@ $LNG['an__before']                   = '之前';
 $LNG['an_charge']                    = '自己移除交易將會收取20%手續費。成功交易/時限到了仍未完成交易，則不收取任何手續費。';
 
 // Daily Bonus
-$LNG['dailybonus']                    = '你現在獲得了每日登入獎勵 - <font color="yellow">500</font> 黑暗物質，請重新載入網頁。';
+$LNG['dailybonus']                   = '你現在獲得了每日登入獎勵 - <font color="yellow">500</font> 黑暗物質，請重新載入網頁。';
+
+// Races
+$LNG['st_race']						 = '種族';
+$LNG['race']= array (
+0 => '未選擇種族',
+1 => '經濟學者',
+2 => '軍事力量',
+);

@@ -280,10 +280,10 @@ class ResourceUpdate
 			$this->PLANET['deuterium_perhour']	= 0;
 		} else {
 			$prodLevel	= min(1, $this->PLANET['energy'] / abs($this->PLANET['energy_used']));
-			
-			$this->PLANET['metal_perhour']		= ($temp[901]['plus'] * (1 + $this->USER['factor']['Resource'] + 0.02 * $this->USER[$resource[131]]) * $prodLevel + $temp[901]['minus']) * $this->CONF['resource_multiplier'];
-			$this->PLANET['crystal_perhour']	= ($temp[902]['plus'] * (1 + $this->USER['factor']['Resource'] + 0.02 * $this->USER[$resource[132]]) * $prodLevel + $temp[902]['minus']) * $this->CONF['resource_multiplier'];
-			$this->PLANET['deuterium_perhour']	= ($temp[903]['plus'] * (1 + $this->USER['factor']['Resource'] + 0.02 * $this->USER[$resource[133]]) * $prodLevel + $temp[903]['minus']) * $this->CONF['resource_multiplier'];
+			$racebonus = $GLOBALS['DATABASE']->getFirstRow('SELECT * FROM ' . RACES . ' WHERE race_id = ' .$this->USER['race']);
+			$this->PLANET['metal_perhour']		= ($temp[901]['plus'] * (1 + $racebonus['race_resource_production'] + $this->USER['factor']['Resource'] + 0.02 * $this->USER[$resource[131]]) * $prodLevel + $temp[901]['minus']) * $this->CONF['resource_multiplier'];
+			$this->PLANET['crystal_perhour']	= ($temp[902]['plus'] * (1 + $racebonus['race_resource_production'] + $this->USER['factor']['Resource'] + 0.02 * $this->USER[$resource[132]]) * $prodLevel + $temp[902]['minus']) * $this->CONF['resource_multiplier'];
+			$this->PLANET['deuterium_perhour']	= ($temp[903]['plus'] * (1 + $racebonus['race_resource_production'] + $this->USER['factor']['Resource'] + 0.02 * $this->USER[$resource[133]]) * $prodLevel + $temp[903]['minus']) * $this->CONF['resource_multiplier'];
 		}
 	}
 	
