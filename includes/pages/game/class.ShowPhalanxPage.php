@@ -33,9 +33,10 @@ class ShowPhalanxPage extends AbstractPage
 	
 	static function allowPhalanx($toGalaxy, $toSystem)
 	{
-		global $PLANET, $resource;
+		global $USER, $PLANET, $resource;
 
-		if ($PLANET['galaxy'] != $toGalaxy || $PLANET[$resource[42]] == 0 || !isModulAvalible(MODULE_PHALANX) || $PLANET[$resource[903]] < PHALANX_DEUTERIUM) {
+		$racebonus = $GLOBALS['DATABASE']->getFirstRow('SELECT * FROM ' . RACES . ' WHERE race_id = ' . $USER['race']);
+		if ($PLANET['galaxy'] != $toGalaxy || $PLANET[$resource[42]] == 0 || !isModulAvalible(MODULE_PHALANX) || $PLANET[$resource[903]] < PHALANX_DEUTERIUM || $racebonus['race_phalanx'] == 0) {
 			return false;
 		}
 		

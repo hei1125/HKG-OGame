@@ -1057,6 +1057,7 @@ CREATE TABLE `%PREFIX%races` (
 `race_build_time` float NOT NULL DEFAULT '0',  
 `race_fleet_time` float NOT NULL DEFAULT '0',  
 `race_fleet_cost` float NOT NULL DEFAULT '0',
+`race_phalanx` tinyint(1) NOT NULL DEFAULT '0',
 UNIQUE KEY `race_id` (`race_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -1188,8 +1189,8 @@ INSERT INTO `%PREFIX%vars` (`elementID`, `name`, `class`, `onPlanetType`, `onePe
 (707, 'dm_fleettime', 700, '1,3', 0, 1.00, NULL, 0, 0, 0, 0, 3000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 86400, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, -0.10, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 INSERT INTO `%PREFIX%races` VALUES
-(1, 'Economist', 0.2, 0.2, 0.2, 0, 0),
-(2, 'MilitaryForce', 0, 0, 0, 0.3, 0.3);
+(1, 'Economist', 0.2, 0.2, 0.2, 0, 0, 0),
+(2, 'MilitaryForce', 0, 0, 0, 0.3, 0.3, 1);
 
 INSERT INTO `%PREFIX%vars_rapidfire` (`elementID`, `rapidfireID`, `shoots`) VALUES
 (202, 210, 5),
