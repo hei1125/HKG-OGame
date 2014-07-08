@@ -136,7 +136,13 @@ class ShowOverviewPage extends AbstractPage
 			$USER['darkmatter'] += 500;
 			$this->printMessage(sprintf($LNG['dailybonus']),"?page=overview",4);
 		}
-
+		if ($USER['race'] != 0){
+			$race = $GLOBALS['DATABASE']->getFirstRow('SELECT * FROM ' . RACES . ' WHERE race_id = ' . $USER['race']);
+			if($USER[$race['race_name']] != 1){
+				$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `".$race['race_name']."` = 1 WHERE `id` = ".$USER['id'].";");
+			}
+		}
+		
 		foreach($USER['PLANETS'] as $ID => $CPLANET)
 		{		
 			if ($ID == $PLANET['id'] || $CPLANET['planet_type'] == 3)

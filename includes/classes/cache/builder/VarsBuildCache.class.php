@@ -47,6 +47,7 @@ class VarsBuildCache
 		$reslist['fleet']		= array();
 		$reslist['defense']		= array();
 		$reslist['officier']	= array();
+		$reslist['race']		= array();
 		$reslist['dmfunc']		= array();
 		
 		$reqResult		= $GLOBALS['DATABASE']->query("SELECT * FROM ".VARS_REQUIRE.";");
@@ -156,6 +157,9 @@ class VarsBuildCache
 				break;
 				case 700: 
 					$reslist['dmfunc'][]	= $varsRow['elementID'];
+				break;
+				case 800: 
+					$reslist['race'][]	= $varsRow['elementID'];
 				break;
 			}
 		}

@@ -42,7 +42,7 @@ class ShowTechtreePage extends AbstractPage
 
 		$RequeriList	= array();
 
-		$elementID		= array_merge(array(0), $reslist['build'], array(100), $reslist['tech'], array(200), $reslist['fleet'], array(400), $reslist['defense'], array(500), $reslist['missile'], array(600), $reslist['officier']);
+		$elementID		= array_merge(array(0), $reslist['build'], array(100), $reslist['tech'], array(200), $reslist['fleet'], array(400), $reslist['defense'], array(500), $reslist['missile'], array(600), $reslist['officier'], array(800), $reslist['race']);
 
 		foreach($elementID as $Element)
 		{
@@ -238,5 +238,36 @@ class ShowTechtreePage extends AbstractPage
 		));
 
 		$this->display('page.techtreedefense.default.tpl');
+	}
+	function race()
+	{
+		global $resource, $requeriments, $LNG, $reslist, $USER, $PLANET;
+
+		$RequeriList	= array();
+
+		$elementID		= array_merge(array(800), $reslist['race']);
+
+		foreach($elementID as $Element)
+		{
+			if(!isset($resource[$Element])) {
+				$TechTreeList[$Element]	= $Element;
+
+			} else {
+				$RequeriList	= array();
+				if(isset($requeriments[$Element]))
+				{
+					foreach($requeriments[$Element] as $requireID => $RedCount)
+					{
+						$RequeriList[$requireID]	= array('count' => $RedCount, 'own' => (isset($PLANET[$resource[$requireID]])) ? $PLANET[$resource[$requireID]] : $USER[$resource[$requireID]]);
+					}
+				}
+
+				$TechTreeList[$Element]	= $RequeriList;
+			}
+		}
+
+		$this->tplObj->assign_vars(array(
+			'TechTreeList'		=> $TechTreeList,
+		));
 	}
 }

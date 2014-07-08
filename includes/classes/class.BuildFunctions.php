@@ -96,7 +96,11 @@ class BuildFunctions
 				continue;
 			}
 			$racebonus = $GLOBALS['DATABASE']->getFirstRow('SELECT * FROM ' . RACES . ' WHERE race_id = ' . $USER['race']);
-			$ressourceAmount	= $pricelist[$Element]['cost'][$resType] * (1 - $racebonus['race_fleet_cost']);
+			$ressourceAmount	= $pricelist[$Element]['cost'][$resType];
+			
+			if(in_array($Element, $reslist['fleet']) || in_array($Element, $reslist['defense']) || in_array($Element, $reslist['missile'])) {
+				$ressourceAmount    *= (1 - $racebonus['race_fleet_cost']);
+			}
 			
 			if ($ressourceAmount == 0) {
 				continue;
@@ -109,7 +113,7 @@ class BuildFunctions
 			}
 			
 			if($forLevel && (in_array($Element, $reslist['fleet']) || in_array($Element, $reslist['defense']) || in_array($Element, $reslist['missile']))) {
-				$price[$resType]	*= $elementLevel;
+				$price[$resType]	*= $elementLevel;	
 			}
 			
 			if($forDestroy === true) {
