@@ -755,6 +755,7 @@ CREATE TABLE `%PREFIX%users` (
   `race` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `economist` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `militaryforce` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `scientist` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `rights` text,
   `id_planet` int(11) unsigned NOT NULL DEFAULT '0',
   `universe` tinyint(3) unsigned NOT NULL,
@@ -967,8 +968,6 @@ CREATE TABLE `%PREFIX%users_valid` (
  `ip` varchar(40) NOT NULL,
  `language` varchar(3) NOT NULL,
  `race` tinyint(1) unsigned NOT NULL DEFAULT '0',
- `economist` tinyint(1) unsigned NOT NULL DEFAULT '0',
- `militaryforce` tinyint(1) unsigned NOT NULL DEFAULT '0',
  `universe` tinyint(3) unsigned NOT NULL,
  `referralID` int(11) DEFAULT NULL,
  `externalAuthUID` varchar(128) DEFAULT NULL,
@@ -1197,6 +1196,7 @@ INSERT INTO `%PREFIX%vars` (`elementID`, `name`, `class`, `onPlanetType`, `onePe
 (707, 'dm_fleettime', 700, '1,3', 0, 1.00, NULL, 0, 0, 0, 0, 3000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 86400, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, -0.10, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (801, 'economist', 800, '1,3', 0, 1.00, 1, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (802, 'militaryforce', 800, '1,3', 0, 1.00, 1, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(803, 'scientist', 800, '1,3', 0, 1.00, 1, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 INSERT INTO `%PREFIX%races` (`race_id`, `race_name`, `race_resource_production`, `race_research_time`, `race_research_cost`, `race_build_time`, `race_build_cost`, `race_fleet_time`, `race_fleet_cost`, `race_fleet_consumption`, `race_defense_cost`, `race_phalanx`) VALUES
 (1, 'economist', 0.20, 0.00, 0.00, 0.20, 0.20, 0.00, 0.00, 0.00, 0.20, 0),
@@ -1401,7 +1401,7 @@ INSERT INTO `%PREFIX%vars_requriements` (`elementID`, `requireID`, `requireLevel
 (214, 118, 7),
 (214, 114, 6),
 (214, 199, 1),
-(214, 615, 1),
+(214, 614, 1),
 (215, 21, 8),
 (215, 120, 12),
 (215, 114, 5),
@@ -1414,7 +1414,7 @@ INSERT INTO `%PREFIX%vars_requriements` (`elementID`, `requireID`, `requireLevel
 (216, 106, 12),
 (216, 114, 10),
 (216, 199, 3),
-(216, 615, 1),
+(216, 614, 1),
 (216, 803, 1),
 (217, 21, 14),
 (217, 117, 15),
@@ -1425,7 +1425,7 @@ INSERT INTO `%PREFIX%vars_requriements` (`elementID`, `requireID`, `requireLevel
 (218, 110, 16),
 (218, 118, 12),
 (218, 114, 10),
-(218, 614, 1),
+(218, 612, 1),
 (219, 21, 15),
 (219, 109, 15),
 (219, 110, 15),
