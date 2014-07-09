@@ -98,8 +98,17 @@ class BuildFunctions
 			$racebonus = $GLOBALS['DATABASE']->getFirstRow('SELECT * FROM ' . RACES . ' WHERE race_id = ' . $USER['race']);
 			$ressourceAmount	= $pricelist[$Element]['cost'][$resType];
 			
-			if(in_array($Element, $reslist['fleet']) || in_array($Element, $reslist['defense']) || in_array($Element, $reslist['missile'])) {
+			if(in_array($Element, $reslist['fleet'])) {
 				$ressourceAmount    *= (1 - $racebonus['race_fleet_cost']);
+			} 
+			else if (in_array($Element, $reslist['defense']) || in_array($Element, $reslist['missile'])){
+				$ressourceAmount    *= (1 - $racebonus['race_defense_cost']);
+			}
+			else if (in_array($Element, $reslist['build'])){
+				$ressourceAmount    *= (1 - $racebonus['race_build_cost']);
+			} 
+			else if (in_array($Element, $reslist['tech'])){
+				$ressourceAmount    *= (1 - $racebonus['race_research_cost']);
 			}
 			
 			if ($ressourceAmount == 0) {

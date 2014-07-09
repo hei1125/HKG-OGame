@@ -116,14 +116,14 @@ class FleetFunctions
 		$SpeedFactor	*= pow($Distance * 10 / $MaxFleetSpeed, 0.5);
 		$SpeedFactor	+= 10;
 		$SpeedFactor	/= $GameSpeed;
-		
 		$racebonus = $GLOBALS['DATABASE']->getFirstRow('SELECT * FROM ' . RACES . ' WHERE race_id = ' . $USER['race']);
-		if(isset($USER['factor']['FlyTime'])) {
+
+		if(isset($USER['factor']['FlyTime']))
+		{
 			$SpeedFactor	*= max(0, 1 + $USER['factor']['FlyTime']);
-		} else {
-			$SpeedFactor	*= max(0, 1);
 		}
-		$SpeedFactor *= (1 - $racebonus['race_fleet_time']);
+		$SpeedFactor *= 1 - $racebonus['race_fleet_time'];
+		
 		return max($SpeedFactor, MIN_FLEET_TIME);
 	}
  
@@ -173,14 +173,16 @@ class FleetFunctions
 	public static function GetFleetConsumption($FleetArray, $MissionDuration, $MissionDistance, $FleetMaxSpeed, $Player, $GameSpeed)
 	{
 		$consumption = 0;
+		$racebonus = $GLOBALS['DATABASE']->getFirstRow('SELECT * FROM ' . RACES . ' WHERE race_id = ' . $Player['race']);
 
 		foreach ($FleetArray as $Ship => $Count)
 		{
 			$ShipSpeed          = self::GetShipSpeed($Ship, $Player);
 			$ShipConsumption    = self::GetShipConsumption($Ship, $Player);
-			
+
 			$spd                = 35000 / (round($MissionDuration, 0) * $GameSpeed - 10) * sqrt($MissionDistance * 10 / $ShipSpeed);
-			$basicConsumption   = $ShipConsumption * $Count * (1+ $Player['factor']['LessFuel']);
+			
+			$basicConsumption   = $ShipConsumption * $Count * (1 + $Player['factor']['LessFuel'] - $racebonus['race_fleet_consumption']);
 			$consumption        += $basicConsumption * $MissionDistance / 35000 * (($spd / 10) + 1) * (($spd / 10) + 1);
 		}
 		return (round($consumption) + 1);

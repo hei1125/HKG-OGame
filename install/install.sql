@@ -1054,14 +1054,18 @@ CREATE TABLE `%PREFIX%vars` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 CREATE TABLE `%PREFIX%races` (  
-`race_id` int(11) NOT NULL AUTO_INCREMENT,  
-`race_name` varchar(50) NOT NULL,  
-`race_resource_production` float NOT NULL DEFAULT '0',  
-`race_research_time` float NOT NULL DEFAULT '0',  
-`race_build_time` float NOT NULL DEFAULT '0',  
-`race_fleet_time` float NOT NULL DEFAULT '0',  
-`race_fleet_cost` float NOT NULL DEFAULT '0',
-`race_phalanx` tinyint(1) NOT NULL DEFAULT '0',
+  `race_id` int(11) NOT NULL AUTO_INCREMENT,
+  `race_name` varchar(50) NOT NULL,
+  `race_resource_production` float(4,2) NOT NULL DEFAULT '0.00',
+  `race_research_time` float(4,2) NOT NULL DEFAULT '0.00',
+  `race_research_cost` float(4,2) NOT NULL DEFAULT '0.00',
+  `race_build_time` float(4,2) NOT NULL DEFAULT '0.00',
+  `race_build_cost` float(4,2) NOT NULL DEFAULT '0.00',
+  `race_fleet_time` float(4,2) NOT NULL DEFAULT '0.00',
+  `race_fleet_cost` float(4,2) NOT NULL DEFAULT '0.00',
+  `race_fleet_consumption` float(4,2) NOT NULL DEFAULT '0.00',
+  `race_defense_cost` float(4,2) NOT NULL DEFAULT '0.00',
+  `race_phalanx` tinyint(1) NOT NULL DEFAULT '0',
 UNIQUE KEY `race_id` (`race_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -1194,9 +1198,10 @@ INSERT INTO `%PREFIX%vars` (`elementID`, `name`, `class`, `onPlanetType`, `onePe
 (801, 'economist', 800, '1,3', 0, 1.00, 1, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (802, 'militaryforce', 800, '1,3', 0, 1.00, 1, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
-INSERT INTO `%PREFIX%races` VALUES
-(1, 'Economist', 0.2, 0.2, 0.2, 0, 0, 0),
-(2, 'MilitaryForce', 0, 0, 0, 0.3, 0.3, 1);
+INSERT INTO `%PREFIX%races` (`race_id`, `race_name`, `race_resource_production`, `race_research_time`, `race_research_cost`, `race_build_time`, `race_build_cost`, `race_fleet_time`, `race_fleet_cost`, `race_fleet_consumption`, `race_defense_cost`, `race_phalanx`) VALUES
+(1, 'economist', 0.20, 0.00, 0.00, 0.20, 0.20, 0.00, 0.00, 0.00, 0.20, 0),
+(2, 'militaryforce', 0.00, 0.00, 0.00, 0.00, 0.00, 0.30, 0.30, 0.50, 0.00, 1),
+(3, 'scientist', 0.00, 0.30, 0.30, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 1);
 
 INSERT INTO `%PREFIX%vars_rapidfire` (`elementID`, `rapidfireID`, `shoots`) VALUES
 (202, 210, 5),
@@ -1268,6 +1273,7 @@ INSERT INTO `%PREFIX%vars_rapidfire` (`elementID`, `rapidfireID`, `shoots`) VALU
 (216, 211, 15),
 (216, 215, 12),
 (216, 213, 4),
+(216, 214, 1),
 (216, 401, 200),
 (216, 402, 160),
 (216, 403, 80),
@@ -1285,7 +1291,27 @@ INSERT INTO `%PREFIX%vars_rapidfire` (`elementID`, `rapidfireID`, `shoots`) VALU
 (219, 210, 5),
 (219, 212, 5),
 (220, 210, 5),
-(220, 212, 5);
+(220, 212, 5),
+(401, 210, 5),
+(402, 210, 5),
+(403, 210, 5),
+(404, 210, 5),
+(405, 210, 5),
+(406, 210, 5),
+(410, 210, 1250),
+(410, 202, 250),
+(410, 203, 250),
+(410, 208, 250),
+(410, 209, 250),
+(410, 204, 160),
+(410, 205, 80),
+(410, 206, 24),
+(410, 217, 20),
+(410, 207, 16),
+(410, 211, 15),
+(410, 215, 12),
+(410, 213, 4),
+(410, 214, 1);
 
 INSERT INTO `%PREFIX%vars_requriements` (`elementID`, `requireID`, `requireLevel`) VALUES
 (6, 14, 20),
@@ -1375,7 +1401,7 @@ INSERT INTO `%PREFIX%vars_requriements` (`elementID`, `requireID`, `requireLevel
 (214, 118, 7),
 (214, 114, 6),
 (214, 199, 1),
-(214, 614, 1),
+(214, 615, 1),
 (215, 21, 8),
 (215, 120, 12),
 (215, 114, 5),
@@ -1389,6 +1415,7 @@ INSERT INTO `%PREFIX%vars_requriements` (`elementID`, `requireID`, `requireLevel
 (216, 114, 10),
 (216, 199, 3),
 (216, 615, 1),
+(216, 803, 1),
 (217, 21, 14),
 (217, 117, 15),
 (217, 110, 14),
@@ -1398,7 +1425,7 @@ INSERT INTO `%PREFIX%vars_requriements` (`elementID`, `requireID`, `requireLevel
 (218, 110, 16),
 (218, 118, 12),
 (218, 114, 10),
-(218, 612, 1),
+(218, 614, 1),
 (219, 21, 15),
 (219, 109, 15),
 (219, 110, 15),
