@@ -1199,9 +1199,9 @@ INSERT INTO `%PREFIX%vars` (`elementID`, `name`, `class`, `onPlanetType`, `onePe
 (803, 'scientist', 800, '1,3', 0, 1.00, 1, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 INSERT INTO `%PREFIX%races` (`race_id`, `race_name`, `race_resource_production`, `race_research_time`, `race_research_cost`, `race_build_time`, `race_build_cost`, `race_fleet_time`, `race_fleet_cost`, `race_fleet_consumption`, `race_defense_cost`, `race_phalanx`) VALUES
-(1, 'economist', 0.20, 0.00, 0.00, 0.20, 0.20, 0.00, 0.00, 0.00, 0.20, 0),
+(1, 'economist', 0.25, 0.00, 0.00, 0.25, 0.25, 0.00, 0.00, 0.00, 0.25, 0),
 (2, 'militaryforce', 0.00, 0.00, 0.00, 0.00, 0.00, 0.30, 0.30, 0.50, 0.00, 1),
-(3, 'scientist', 0.10, 0.30, 0.30, 0.10, 0.10, 0.00, 0.00, 0.00, 0.10, 1);
+(3, 'scientist', 0.10, 0.30, 0.30, 0.10, 0.10, 0.10, 0.10, 0.00, 0.00, 1);
 
 INSERT INTO `%PREFIX%vars_rapidfire` (`elementID`, `rapidfireID`, `shoots`) VALUES
 (202, 210, 5),
