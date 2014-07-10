@@ -1155,7 +1155,7 @@ INSERT INTO `%PREFIX%vars` (`elementID`, `name`, `class`, `onPlanetType`, `onePe
 (215, 'battleship', 200, '1,3', 0, 1.00, NULL, 30000, 40000, 15000, 0, 0, 250, 250, 3, 10000, 10000, NULL, NULL, NULL, NULL, 750, 700, 400, NULL, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (216, 'lune_noir', 200, '1,3', 0, 1.00, NULL, 8000000, 2000000, 1500000, 0, 0, 400, 400, 3, 900, 900, NULL, NULL, NULL, NULL, 1000000, 150000, 70000, NULL, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (217, 'ev_transporter', 200, '1,3', 0, 1.00, NULL, 35000, 20000, 1500, 0, 0, 90, 90, 3, 6000, 6000, NULL, NULL, NULL, NULL, 100000000, 50, 120, NULL, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(218, 'shield_destroyer', 200, '1,3', 0, 1.00, NULL, 120000, 100000, 25000, 0, 0, 750, 750, 3, 4000, 4000, NULL, NULL, NULL, NULL, 5000, 4000, 1500, NULL, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(218, 'shield_destroyer', 200, '1,3', 0, 1.00, NULL, 150000, 120000, 35000, 0, 0, 600, 600, 3, 5000, 5000, NULL, NULL, NULL, NULL, 8000, 6000, 1500, NULL, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (219, 'giga_recykler', 200, '1,3', 0, 1.00, NULL, 800000, 500000, 200000, 0, 0, 300, 300, 3, 6000, 6000, NULL, NULL, NULL, NULL, 50000000, 1, 1000, NULL, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (220, 'dm_ship', 200, '1,3', 0, 1.00, NULL, 6000000, 7000000, 3000000, 0, 0, 100000, 100000, 3, 100, 100, NULL, NULL, NULL, NULL, 5000000, 5, 50000, NULL, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (221, 'fleet_saver', 200, '1,3', 0, 1.00, NULL, 1, 1, 1, 0, 1000, 1, 1, 1, 1, 1, NULL, NULL, NULL, NULL, 1, 1, 100, NULL, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
@@ -1201,7 +1201,7 @@ INSERT INTO `%PREFIX%vars` (`elementID`, `name`, `class`, `onPlanetType`, `onePe
 INSERT INTO `%PREFIX%races` (`race_id`, `race_name`, `race_resource_production`, `race_research_time`, `race_research_cost`, `race_build_time`, `race_build_cost`, `race_fleet_time`, `race_fleet_cost`, `race_fleet_consumption`, `race_defense_cost`, `race_phalanx`) VALUES
 (1, 'economist', 0.20, 0.00, 0.00, 0.20, 0.20, 0.00, 0.00, 0.00, 0.20, 0),
 (2, 'militaryforce', 0.00, 0.00, 0.00, 0.00, 0.00, 0.30, 0.30, 0.50, 0.00, 1),
-(3, 'scientist', 0.00, 0.30, 0.30, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 1);
+(3, 'scientist', 0.10, 0.30, 0.30, 0.10, 0.10, 0.00, 0.00, 0.00, 0.10, 1);
 
 INSERT INTO `%PREFIX%vars_rapidfire` (`elementID`, `rapidfireID`, `shoots`) VALUES
 (202, 210, 5),
@@ -1273,7 +1273,6 @@ INSERT INTO `%PREFIX%vars_rapidfire` (`elementID`, `rapidfireID`, `shoots`) VALU
 (216, 211, 15),
 (216, 215, 12),
 (216, 213, 4),
-(216, 214, 1),
 (216, 401, 200),
 (216, 402, 160),
 (216, 403, 80),
@@ -1310,8 +1309,7 @@ INSERT INTO `%PREFIX%vars_rapidfire` (`elementID`, `rapidfireID`, `shoots`) VALU
 (410, 207, 16),
 (410, 211, 15),
 (410, 215, 12),
-(410, 213, 4),
-(410, 214, 1);
+(410, 213, 4);
 
 INSERT INTO `%PREFIX%vars_requriements` (`elementID`, `requireID`, `requireLevel`) VALUES
 (6, 14, 20),
@@ -1415,7 +1413,7 @@ INSERT INTO `%PREFIX%vars_requriements` (`elementID`, `requireID`, `requireLevel
 (216, 114, 10),
 (216, 199, 3),
 (216, 614, 1),
-(216, 803, 1),
+(216, 802, 1),
 (217, 21, 14),
 (217, 117, 15),
 (217, 110, 14),
@@ -1459,6 +1457,7 @@ INSERT INTO `%PREFIX%vars_requriements` (`elementID`, `requireID`, `requireLevel
 (410, 199, 7),
 (410, 21, 18),
 (410, 109, 20),
+(410, 608, 1),
 (502, 44, 2),
 (502, 21, 1),
 (503, 44, 4),
