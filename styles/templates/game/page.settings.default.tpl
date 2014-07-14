@@ -112,17 +112,6 @@
 			<td><img src="{$dpath}img/r.gif" alt="">{$LNG.op_missile_attack}</td>
 			<td><input name="galaxyMissle" type="checkbox" value="1" {if $galaxyMissle == 1}checked="checked"{/if}></td>
 		</tr>
-		<tr>
-			<th colspan="2">{$LNG.op_vacation_delete_mode}</th>
-		</tr>
-		<tr>
-			<td><a title="{$LNG.op_activate_vacation_mode_descrip}">{$LNG.op_activate_vacation_mode}</a></td>
-			<td><input name="vacation" type="checkbox" value="1"></td>
-		</tr>
-		<tr>
-			<td><a title="{$LNG.op_dlte_account_descrip}">{$LNG.op_dlte_account}</a></td>
-			<td><input name="delete" type="checkbox" value="1" {if $delete > 0}checked="checked"{/if}></td>
-		</tr>
 		{if extension_loaded('gd') && isModulAvalible($smarty.const.MODULE_BANNER)}
 		<tr>
 			<th colspan="3">{$LNG.ov_userbanner}</th>
