@@ -1318,6 +1318,7 @@ INSERT INTO `%PREFIX%vars_rapidfire` (`elementID`, `rapidfireID`, `shoots`) VALU
 (410, 217, 20),
 (410, 207, 16),
 (410, 211, 15),
+(410, 222, 12),
 (410, 215, 12),
 (410, 213, 4),
 (410, 214, 1);
@@ -1447,7 +1448,7 @@ INSERT INTO `%PREFIX%vars_requriements` (`elementID`, `requireID`, `requireLevel
 (221, 21, 3),
 (222, 21, 9),
 (222, 118, 6),
-(222, 802, 6),
+(222, 802, 1),
 (401, 21, 1),
 (402, 113, 1),
 (402, 21, 2),
